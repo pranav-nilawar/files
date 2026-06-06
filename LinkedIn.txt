@@ -1,0 +1,24 @@
+🎓 Just completed LearnHub — a full-stack Enterprise Learning Platform built entirely on IBM webMethods Integration Server 10.15!
+
+This wasn't just another web app. Every single piece of business logic lives inside IS — no direct DB calls from the browser, no shortcuts.
+
+🔧 What we built:
+
+→ 21 JDBC Adapter Services (SELECT · INSERT · DELETE · MERGE · Update SQL · Custom SQL)
+→ Pub/Sub Adapter Notifications — enrollment emails completely decoupled from the transaction
+→ Flat File Schema Processing — courses added via CSV parsed by IS flat file engine
+→ REPEAT/EXIT Retry Pattern with Transaction Boundaries for atomic progress updates
+→ IS REST API Descriptor — clean /learnhub/api endpoints
+→ pub.client:http → Gemini AI chatbot (API key stays in IS, never reaches the browser)
+→ pub.client:smtp → Gmail notifications + IS Complex Repeating Scheduler
+→ React 18 frontend served from IS pub folder — same-origin, zero CORS
+
+🗄️ Oracle DB (SAGAPPLICATION):
+5 tables · 3 sequences · 1 BEFORE INSERT trigger · 2 views
+Student count maintained by IS Update SQL adapters — not Oracle triggers
+
+💡 The biggest challenge was keeping enrollment fast (~200ms) while the email notification fires asynchronously 5–15 seconds later through Adapter Notification → IS Trigger → SMTP — and making sure email failure never rolls back the enrollment.
+
+📦 11 IS namespaces · 20 flow services · 2 HTML files · 1 package
+
+#IBMwebMethods #SoftwareAG #IntegrationServer #EnterpriseIntegration #Oracle #JDBC #PubSub #REST #FlatFile #React #webMethods #IS1015
